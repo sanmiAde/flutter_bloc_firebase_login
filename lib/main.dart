@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'LoginScreen.dart';
 import 'SimpleBlocObserver.dart';
 import 'UserRepository.dart';
 import 'authentication/authentication_bloc.dart';
@@ -34,6 +35,10 @@ class App extends StatelessWidget {
         builder: (context, state) {
           if (state is AuthenticationInitial) {
             return SplashScreen();
+          }
+
+          if (state is AuthenticationFailure) {
+            return LoginScreen(userRepository: _userRepository);
           }
 
           if (state is AuthenticationSuccess) {

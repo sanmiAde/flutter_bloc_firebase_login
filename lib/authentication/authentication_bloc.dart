@@ -7,7 +7,6 @@ import 'package:meta/meta.dart';
 import '../UserRepository.dart';
 
 part 'authentication_event.dart';
-
 part 'authentication_state.dart';
 
 class AuthenticationBloc
